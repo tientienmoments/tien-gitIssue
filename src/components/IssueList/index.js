@@ -15,7 +15,9 @@ const IssueList = ({ issues, showDetail }) => {
 const IssueDetail = ({ issue, showDetail }) => {
   
   return<div>
+          
           <img src={issue.user.avatar_url} alt="avatar"/> 
+          <h4>#{issue.number}</h4>
           <h4 onClick={() => showDetail(issue)}>{issue.title}</h4>
           <h4>{issue.comments}</h4>
           <h4>{issue.user.login}</h4>
