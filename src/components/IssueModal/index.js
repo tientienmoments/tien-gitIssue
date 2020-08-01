@@ -24,10 +24,10 @@ const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, c
             <ReactMarkdown source={selectedIssue.body}/>
             <hr />
             <h4>Comments:</h4>
-            <ul>
+            <ul className="comment-style">
             {comments && comments.length ? (
               comments.map((comment) => (
-                <Comments key={comment.id} {...comment} />
+               <Comments key={comment.id} {...comment} />
               ))
             ) : (
               <li>There are no comments of this issue</li>
@@ -60,18 +60,24 @@ const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, c
 
 const Comments = ({ user, body, created_at }) => {
   return (
-    <Media as="li" className="mb-3">
+    <Media>
       <img
+        width={130}
+        height={130}
         src={user.avatar_url}
-        alt="User Avatar"
+        alt="avatar"
+        margin={15}
         
       />
-      <Media.Body className="text-left">
+      <Media.Body>
         <div>
-          <span>@{user.login}</span>
+          <p>
+          <span className="text-muted">@{user.login}</span>
           <span>
             commented <Moment fromNow>{created_at}</Moment>
           </span>
+          </p>
+
         </div>
         <ReactMarkdown source={body} />
       </Media.Body>

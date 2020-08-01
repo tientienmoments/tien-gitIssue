@@ -1,29 +1,49 @@
 import React from "react";
+import Media from 'react-bootstrap/Media'
+import Moment from "react-moment";
+import Badge from 'react-bootstrap/Badge'
 
 const IssueList = ({ issues, showDetail }) => {
   return (
     <div>
       {issues.map((issue) => (
         <IssueDetail
-         key={issue.id} issue={issue} showDetail={showDetail} 
-         />
+          key={issue.id} issue={issue} showDetail={showDetail}
+        />
       ))}
     </div>
   );
 };
 
 const IssueDetail = ({ issue, showDetail }) => {
-  
-  return<div>
-          
-          <img src={issue.user.avatar_url} alt="avatar"/> 
-          <h4>#{issue.number}</h4>
-          <h4 onClick={() => showDetail(issue)}>{issue.title}</h4>
-          <h4>{issue.comments}</h4>
-          <h4>{issue.user.login}</h4>
-          <h4>{issue.created_at}</h4>
-          <p>{issue.body.slice(0,100)}...</p>
-          </div>
+
+  return <div>
+
+    <Media >
+      <img
+        width={130}
+        height={130}
+        // className="mr-3"
+        src={issue.user.avatar_url}
+        alt="avatar"
+      />
+      <Media.Body className="card-style">
+        <h5>#{issue.number} <span onClick={() => showDetail(issue)}>{issue.title}</span></h5>
+        <p className="text-muted" style={{magin:"0px"}}>@{issue.user.login} <span>Last Update: <Moment fromNow>{issue.updated_at}</Moment> </span> <span>Comments: {issue.comments} </span></p>
+        <p>
+          {issue.body.slice(0, 100)}...
+        </p>
+        <p style={{marginBottom:"10px"}}>
+          {issue.labels.map((label) =>
+            <span><Badge variant="secondary">{label.name}</Badge> </span>
+          )}
+        </p>
+      </Media.Body>
+    </Media>
+
+
+
+  </div>
 }
 
 export default IssueList;
