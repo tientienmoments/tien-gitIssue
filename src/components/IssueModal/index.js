@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal, Media, Button } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
-import ClipLoader from "react-spinners/ClipLoader";
+import PacmanLoader from "react-spinners/PacmanLoader";
 import Moment from "react-moment";
 
 const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, comments,  handleMore,
@@ -13,29 +13,29 @@ const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, c
           size="xl"
           show={showModal}
           onHide={() => setShowModal(false)}
-          aria-labelledby="example-modal-sizes-title-lg"
+          
         >
           <Modal.Header closeButton>
-            <Modal.Title id="example-modal-sizes-title-lg">
-              {selectedIssue.title}
+            <Modal.Title>
+              #{selectedIssue.number} <span>{selectedIssue.title}</span>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <ReactMarkdown source={selectedIssue.body}/>
             <hr />
             <h4>Comments:</h4>
-            <ul className="comment-style">
+            <p className="comment-style">
             {comments && comments.length ? (
               comments.map((comment) => (
                <Comments key={comment.id} {...comment} />
               ))
             ) : (
-              <li>There are no comments of this issue</li>
+              <span>There are no comments of this issue</span>
             )}
-          </ul>
+          </p>
           <div className="d-flex justify-content-center">
             {loadingComments ? (
-              <ClipLoader color="#f86c6b" size={75} loading={loadingComments} />
+              <PacmanLoader color="rgba(56, 56, 255, 0.842)" size={25} loading={loadingComments} />
             ) : (
               <>
                 {!disableShowMore && (

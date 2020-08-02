@@ -7,7 +7,7 @@
   height: 130px;
 }
 .card-style:hover{
-  background-color: rgb(209, 209, 209);
+  background-color: rgba(201, 228, 250, 0.479);
 }
 .text-muted{
   margin-bottom: 0px;
@@ -19,4 +19,6 @@
 .media-body {
   margin-bottom: 30px;
   padding-left: 20px;
+  
+  
 }

@@ -26,7 +26,7 @@ const PaginationIssue = ({ pageNum, totalPageNum, setPageNum }) => {
     setPageNum(page);
   };
   return (
-    <Pagination size="lg" className="justify-content-center">
+    <Pagination className=" d-flex justify-content-center">
       <Pagination.First disabled={pageNum === 1} onClick={handleClickOnFirst} />
       <Pagination.Prev disabled={pageNum === 1} onClick={handleClickOnPrev} />
       <Pagination.Item

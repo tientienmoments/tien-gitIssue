@@ -6,7 +6,7 @@ import Search from "./components/Search";
 import PaginationIssue from "./components/PaginationIssue";
 import IssueList from "./components/IssueList";
 import IssueModal from "./components/IssueModal";
-import ClipLoader from "react-spinners/ClipLoader";
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -143,7 +143,7 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <h1>Github Issues</h1>
+        <h1 className="d-flex justify-content-center">Github Issues</h1>
         <Search
           searchTerm={searchTerm}
           handleSubmit={handleSubmitSearchForm}
@@ -156,12 +156,13 @@ function App() {
           totalPageNum={totalPageNum}
           setPageNum={setPageNum}
         />
+        <div className="d-flex justify-content-center">
         {loading ? (
-          <ClipLoader color="#f86c6b" size={150} loading={true} />
+          <PacmanLoader color="rgba(56, 56, 255, 0.842)" size={25} loading={true} />
         ) : (
             <IssueList issues={issues} showDetail={showDetail} />
           )}
-
+        </div>  
         <IssueModal
           selectedIssue={selectedIssue}
           showModal={showModal}
