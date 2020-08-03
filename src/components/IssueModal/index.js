@@ -61,6 +61,7 @@ const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, c
                         type="button"
                         onClick={handleMore}
                         disabled={disableShowMore}
+                        variant="outline-danger"
                       >
                         Show More
                       </Button>
