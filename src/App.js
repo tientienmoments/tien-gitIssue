@@ -158,7 +158,7 @@ function App() {
         />
         <div className="d-flex justify-content-center">
         {loading ? (
-          <PacmanLoader color="rgba(56, 56, 255, 0.842)" size={25} loading={true} />
+          <PacmanLoader color="#4A90E2" size={25} loading={true} />
         ) : (
             <IssueList issues={issues} showDetail={showDetail} />
           )}

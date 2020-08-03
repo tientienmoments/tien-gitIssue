@@ -24,7 +24,7 @@ const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, c
             <ReactMarkdown source={selectedIssue.body}/>
             <hr />
             <h4>Comments:</h4>
-            <p className="comment-style">
+            <p>
             {comments && comments.length ? (
               comments.map((comment) => (
                <Comments key={comment.id} {...comment} />
@@ -35,7 +35,7 @@ const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, c
           </p>
           <div className="d-flex justify-content-center">
             {loadingComments ? (
-              <PacmanLoader color="rgba(56, 56, 255, 0.842)" size={25} loading={loadingComments} />
+              <PacmanLoader color="#4A90E2" size={25} loading={loadingComments} />
             ) : (
               <>
                 {!disableShowMore && (
@@ -69,14 +69,14 @@ const Comments = ({ user, body, created_at }) => {
         margin={15}
         
       />
-      <Media.Body>
+      <Media.Body className="comment-style">
         <div>
-          <p>
-          <span className="text-muted">@{user.login}</span>
+          
+          <span className="text-muted">@{user.login} </span>
           <span>
             commented <Moment fromNow>{created_at}</Moment>
           </span>
-          </p>
+          
 
         </div>
         <ReactMarkdown source={body} />
