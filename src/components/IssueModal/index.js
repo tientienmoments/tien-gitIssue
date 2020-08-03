@@ -1,10 +1,10 @@
 import React from "react";
-import { Modal, Media, Button } from "react-bootstrap";
+import { Modal, Media, Button, Col } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import Moment from "react-moment";
 
-const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, comments,  handleMore,
+const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, comments, handleMore,
   disableShowMore, }) => {
   return (
     <div>
@@ -13,7 +13,7 @@ const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, c
           size="xl"
           show={showModal}
           onHide={() => setShowModal(false)}
-          
+
         >
           <Modal.Header closeButton>
             <Modal.Title>
@@ -21,36 +21,54 @@ const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, c
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <ReactMarkdown source={selectedIssue.body} skipHtml="true"  />
-            <hr />
+            <div class="container wrapper">
+
+              <div class="card-w col-md-4">
+                <div class="card neumorphism">
+                  <div class="card__icon">
+
+                  </div>
+                  <div class="card__text">
+                    <ReactMarkdown source={selectedIssue.body} skipHtml="true" />
+
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+
+
+
             <h4>Comments:</h4>
-            <p style={{ "overflow-x": "auto" }}>
-            {comments && comments.length ? (
-              comments.map((comment) => (
-               <Comments key={comment.id} {...comment} />
-              ))
-            ) : (
-              <span>There are no comments of this issue</span>
-            )}
-          </p>
-          <div className="d-flex justify-content-center">
-            {loadingComments ? (
-              <PacmanLoader color="#4A90E2" size={25} loading={loadingComments} />
-            ) : (
-              <>
-                {!disableShowMore && (
-                  <Button
-                    type="button"
-                    onClick={handleMore}
-                    disabled={disableShowMore}
-                  >
-                    Show More
-                  </Button>
+            <p>
+              {comments && comments.length ? (
+                comments.map((comment) => (
+                  <Comments key={comment.id} {...comment} />
+                ))
+              ) : (
+                  <span>There are no comments of this issue</span>
                 )}
-              </>
-            )}
-          </div>
-            
+            </p>
+            <div className="d-flex justify-content-center">
+              {loadingComments ? (
+                <PacmanLoader color="#f5bc53" size={25} loading={loadingComments} />
+              ) : (
+                  <>
+                    {!disableShowMore && (
+                      <Button
+                        type="button"
+                        onClick={handleMore}
+                        disabled={disableShowMore}
+                      >
+                        Show More
+                      </Button>
+                    )}
+                  </>
+                )}
+            </div>
+
           </Modal.Body>
         </Modal>
       )}
@@ -60,26 +78,40 @@ const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, c
 
 const Comments = ({ user, body, created_at }) => {
   return (
-    <Media>
-      <img
-        width={130}
-        height={130}
-        src={user.avatar_url}
-        alt="avatar"
-        margin={15}
-        
-      />
-      <Media.Body className="comment-style">
-        <div>
-          
-          <span className="text-muted">@{user.login} </span>
-          <span>
-            commented <Moment fromNow>{created_at}</Moment>
-          </span>
-          
+    <Media className="d-flex justify-content-center align-item-center">
 
+      <Media.Body >
+
+
+        <div className="card-w ">
+          
+          <div className="card active">
+            
+            <div className="card__text" style={{ "overflow-x": "auto" }}>
+              <div className="comment-title-style">
+              <span> 
+              <img
+                className="avatar-style"
+                src={user.avatar_url}
+                alt="avatar"
+                margin={15}
+
+              />
+
+              </span>
+              <h4> @{user.login} </h4>
+              <span className="text-muted">
+                 commented <Moment fromNow>{created_at}</Moment> 
+              </span>
+              </div>
+              <hr></hr>
+              <ReactMarkdown source={body} skipHtml="true" />
+
+            </div>
+          
+          </div>
         </div>
-        <ReactMarkdown source={body} skipHtml="true" />
+
       </Media.Body>
     </Media>
   );

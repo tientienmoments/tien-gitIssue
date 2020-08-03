@@ -27,7 +27,7 @@ function App() {
 
   const [commentPageNum, setCommentPageNum] = useState(1);
 
-const [searchTerm, setSearchTerm] = useState("facebook/react");
+  const [searchTerm, setSearchTerm] = useState("facebook/react");
 
 
 
@@ -144,13 +144,16 @@ const [searchTerm, setSearchTerm] = useState("facebook/react");
   return (
     <div className="App">
       <Container>
-        <h1 className="d-flex justify-content-center">Github Issues</h1>
+        <div className="multi-button">
+          <button>Github</button>
+          <button>Issues</button>
+        </div>
         <Search
           searchTerm={searchTerm}
           handleSubmit={handleSubmitSearchForm}
           handleChange={handleSearchInputChange}
         />
-        {errorMsg && <Alert variant="danger">{errorMsg}</Alert>}
+        {errorMsg && <Alert variant="danger" style={{textAlign:"center"}}>{errorMsg}</Alert>}
 
         <PaginationIssue
           pageNum={pageNum}
@@ -159,12 +162,12 @@ const [searchTerm, setSearchTerm] = useState("facebook/react");
           setLoadingPage={setLoading}
         />
         <div className="d-flex justify-content-center">
-        {loading ? (
-          <PacmanLoader color="#4A90E2" size={25} loading={true} />
-        ) : (
-            <IssueList issues={issues} showDetail={showDetail} />
-          )}
-        </div>  
+          {loading ? (
+            <PacmanLoader color="#f5bc53" size={25} loading={true} />
+          ) : (
+              <IssueList issues={issues} showDetail={showDetail} />
+            )}
+        </div>
         <IssueModal
           selectedIssue={selectedIssue}
           showModal={showModal}

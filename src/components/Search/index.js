@@ -8,9 +8,9 @@ const Search = ({ searchTerm, handleSubmit, handleChange }) => {
         <Form.Group as={Row}>
           <Form.Label htmlFor="search" column sm={2}>
             {" "}
-            Search:{" "}
+            {" "}
           </Form.Label>
-          <Col sm="8">
+          <Col sm="7">
             <Form.Control
               id="search"
               type="text"
@@ -18,7 +18,7 @@ const Search = ({ searchTerm, handleSubmit, handleChange }) => {
               onChange={handleChange}
             ></Form.Control>
           </Col>
-          <Button type="submit">Submit</Button>
+          <Button variant="outline-danger" style={{fontWeight:"bold"}} type="submit">Submit</Button>
         </Form.Group>
       </Form>
     </div>
