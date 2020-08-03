@@ -21,7 +21,7 @@ const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, c
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <ReactMarkdown source={selectedIssue.body}/>
+            <ReactMarkdown source={selectedIssue.body} skipHtml="true"  />
             <hr />
             <h4>Comments:</h4>
             <p>
@@ -79,7 +79,7 @@ const Comments = ({ user, body, created_at }) => {
           
 
         </div>
-        <ReactMarkdown source={body} />
+        <ReactMarkdown source={body} skipHtml="true" />
       </Media.Body>
     </Media>
   );
