@@ -24,7 +24,7 @@ const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, c
             <ReactMarkdown source={selectedIssue.body} skipHtml="true"  />
             <hr />
             <h4>Comments:</h4>
-            <p>
+            <p style={{ "overflow-x": "auto" }}>
             {comments && comments.length ? (
               comments.map((comment) => (
                <Comments key={comment.id} {...comment} />

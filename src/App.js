@@ -11,8 +11,8 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 function App() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-  const [owner, setOwner] = useState("");
-  const [repo, setRepo] = useState("");
+  const [owner, setOwner] = useState("facebook");
+  const [repo, setRepo] = useState("react");
   const [pageNum, setPageNum] = useState(1);
   const [totalPageNum, setTotalPageNum] = useState(1);
   const [commentTotalPageNum, setCommentTotalPageNum] = useState(1);
@@ -27,11 +27,9 @@ function App() {
 
   const [commentPageNum, setCommentPageNum] = useState(1);
 
+const [searchTerm, setSearchTerm] = useState("facebook/react");
 
 
-
-
-  const [searchTerm, setSearchTerm] = useState("facebook/react");
 
   const handleSubmitSearchForm = (event) => {
     event.preventDefault();
@@ -50,7 +48,10 @@ function App() {
   useEffect(() => {
     const fetchIssue = async () => {
       if (!owner || !repo) return;
+
       setLoading(true);
+      setIssues([]);
+
       const url = `https://api.github.com/repos/${owner}/${repo}/issues?page=${pageNum}&per_page=20`;
       try {
         const response = await fetch(url);
@@ -109,7 +110,7 @@ function App() {
 
   useEffect(() => {
     const fetchComments = async () => {
-      if (!urlFetchComments) return;
+      if (!urlFetchComments && !showModal) return;
       setLoadingComments(true);
       try {
         const response = await fetch(urlFetchComments);
@@ -137,7 +138,7 @@ function App() {
       setLoadingComments(false);
     };
     fetchComments();
-  }, [urlFetchComments]);
+  }, [urlFetchComments, showModal]);
 
 
   return (
@@ -155,6 +156,7 @@ function App() {
           pageNum={pageNum}
           totalPageNum={totalPageNum}
           setPageNum={setPageNum}
+          setLoadingPage={setLoading}
         />
         <div className="d-flex justify-content-center">
         {loading ? (
