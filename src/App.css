@@ -1,3 +1,4 @@
+/*
 body {
   --i: var(--wide, 1);
   --j: calc(1 - var(--i));
@@ -43,7 +44,7 @@ article {
 article:nth-child(2n) {
   --parity: 1 ;
 }
-
+*/
 h3 {
   grid-column: calc(1 + var(--i)*var(--q));
   grid-row: 1/span calc(1 + 2*var(--i));
