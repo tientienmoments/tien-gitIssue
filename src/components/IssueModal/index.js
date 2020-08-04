@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Media, Button, Col } from "react-bootstrap";
+import { Modal, Media, Button, } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import Moment from "react-moment";

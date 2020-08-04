@@ -1,9 +1,9 @@
 import React from "react";
-import Media from 'react-bootstrap/Media'
+
 import Moment from "react-moment";
 import Badge from 'react-bootstrap/Badge'
 import {Col, Row} from 'react-bootstrap'
-import ReactMarkdown from "react-markdown";
+
 
 const IssueList = ({ issues, showDetail }) => {
   return (
@@ -51,28 +51,6 @@ const IssueDetail = ({ issue, showDetail }) => {
       
     </article>
 
-
-    {/* <Media >
-      <img
-        width={130}
-        height={130}
-        // className="mr-3"
-        src={issue.user.avatar_url}
-        alt="avatar"
-      />
-      <Media.Body className="card-style">
-        <h5>#{issue.number} <span onClick={() => showDetail(issue)}>{issue.title}</span></h5>
-        <p className="text-muted" style={{ magin: "0px" }}>@{issue.user.login} <span>Last Update: <Moment fromNow>{issue.updated_at}</Moment> </span> <span>Comments: {issue.comments} </span></p>
-        <p>
-          {issue.body.slice(0, 100)}...
-        </p>
-        <p style={{ marginBottom: "10px" }}>
-          {issue.labels.map((label) =>
-            <span><Badge variant="secondary">{label.name}</Badge> </span>
-          )}
-        </p>
-      </Media.Body>
-    </Media> */}
 
 
 

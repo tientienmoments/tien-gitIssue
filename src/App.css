@@ -1,6 +1,6 @@
 
 
- *, :before {
+ * :before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -85,12 +85,7 @@ h3 {
   
 
 }
-/* h3:before {
-  font-size: calc(calc(var(--i)*4 + var(--j)*1)*1em);
-  font-weight: 900;
-  text-shadow: -2px -1px #999;
-  
-} */
+
 
 h4 {
   display: flex;
@@ -106,18 +101,7 @@ h4 {
   /* z-index: 1;
   position: relative; */
 }
-/* h4:before {
-  margin-right: .25em;
-  border: solid 2px currentcolor;
-  width: 1em;
-  height: 1em;
-  font-size: 1.75em;
-  line-height: .8125;
-  border-radius: 50%;
-  text-align: center;
-  content: "+";
-  
-} */
+
 
 p {
   padding: 0.75rem 0;
@@ -132,7 +116,7 @@ p {
   width:100px;
   height:100px;
   border-radius: 50px;
-    
+
 }
 .left-style{
   display: flex;
@@ -261,9 +245,6 @@ margin: 10px auto;
 .card.inset {
   box-shadow: inset 3px 3px 7px rgba(136, 165, 191, 0.48), inset -3px -3px 7px #FFFFFF;
 }
-/* .card.inset i {
-  text-shadow: 1px 1px 1px #d6e1ef99, 0 0 0 #000, 1px 1px 1px #d6e1ef00;
-} */
 
 .card.active {
   box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.5), inset 3px 3px 7px rgba(136, 165, 191, 0.48), inset -3px -3px 7px #FFFFFF;
