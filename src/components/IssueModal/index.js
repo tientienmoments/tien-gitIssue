@@ -29,7 +29,7 @@ const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, c
 
                   </div>
                   <div className="card__text">
-                    <ReactMarkdown source={selectedIssue.body} />
+                    <ReactMarkdown source={selectedIssue.body} skipHtml={true}/>
 
                   </div>
                 </div>
@@ -106,7 +106,7 @@ const Comments = ({ user, body, created_at }) => {
               </span>
               </div>
               <hr></hr>
-              <ReactMarkdown source={body} />
+              <ReactMarkdown source={body} skipHtml={true} />
 
             </div>
           
