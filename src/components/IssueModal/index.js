@@ -29,7 +29,7 @@ const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, c
 
                   </div>
                   <div className="card__text">
-                    <ReactMarkdown source={selectedIssue.body} skipHtml={true}/>
+                    <ReactMarkdown source={selectedIssue.body} skipHtml={true} />
 
                   </div>
                 </div>
@@ -85,31 +85,31 @@ const Comments = ({ user, body, created_at }) => {
 
 
         <div className="card-w ">
-          
+
           <div className="card active">
-            
+
             <div className="card__text" style={{ overflowX: "auto" }}>
               <div className="comment-title-style">
-              <span> 
-              <img
-                className="avatar-style"
-                src={user.avatar_url}
-                alt="avatar"
-                margin={15}
+                <span>
+                  <img
+                    className="avatar-style"
+                    src={user.avatar_url}
+                    alt="avatar"
+                    margin={15}
 
-              />
+                  />
 
-              </span>
-              <h4> @{user.login} </h4>
-              <span className="text-muted">
-                 commented <Moment fromNow>{created_at}</Moment> 
-              </span>
+                </span>
+                <h4> @{user.login} </h4>
+                <span className="text-muted">
+                  commented <Moment fromNow>{created_at}</Moment>
+                </span>
               </div>
               <hr></hr>
               <ReactMarkdown source={body} skipHtml={true} />
 
             </div>
-          
+
           </div>
         </div>
 
