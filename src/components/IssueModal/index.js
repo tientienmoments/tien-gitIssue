@@ -21,15 +21,15 @@ const IssueModal = ({ showModal, setShowModal, selectedIssue, loadingComments, c
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div class="container wrapper">
+            <div className="container wrapper">
 
-              <div class="card-w col-md-4">
-                <div class="card neumorphism">
-                  <div class="card__icon">
+              <div className="card-w col-md-4">
+                <div className="card neumorphism">
+                  <div className="card__icon">
 
                   </div>
-                  <div class="card__text">
-                    <ReactMarkdown source={selectedIssue.body} skipHtml="true" />
+                  <div className="card__text">
+                    <ReactMarkdown source={selectedIssue.body} />
 
                   </div>
                 </div>
@@ -88,7 +88,7 @@ const Comments = ({ user, body, created_at }) => {
           
           <div className="card active">
             
-            <div className="card__text" style={{ "overflow-x": "auto" }}>
+            <div className="card__text" style={{ overflowX: "auto" }}>
               <div className="comment-title-style">
               <span> 
               <img
@@ -106,7 +106,7 @@ const Comments = ({ user, body, created_at }) => {
               </span>
               </div>
               <hr></hr>
-              <ReactMarkdown source={body} skipHtml="true" />
+              <ReactMarkdown source={body} />
 
             </div>
           
