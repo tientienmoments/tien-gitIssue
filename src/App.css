@@ -1,4 +1,3 @@
-/*
 body {
   --i: var(--wide, 1);
   --j: calc(1 - var(--i));
